@@ -9,61 +9,55 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
+
 class Ui_TopWindow(QWidget):
     def setupUi(self, TopWindow):
         TopWindow.setObjectName("TopWindow")
-        TopWindow.resize(800, 478)
+        TopWindow.resize(480, 320)
         self.centralwidget = QtWidgets.QWidget(TopWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton_setting = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_setting.setGeometry(QtCore.QRect(10, 10, 251, 131))
+        self.pushButton_setting.setGeometry(QtCore.QRect(10, 10, 121, 71))
         self.pushButton_setting.setMouseTracking(False)
         self.pushButton_setting.setCheckable(False)
         self.pushButton_setting.setObjectName("pushButton_setting")
         self.pushButton_mdcn_info = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_mdcn_info.setGeometry(QtCore.QRect(10, 310, 350, 130))
+        self.pushButton_mdcn_info.setGeometry(QtCore.QRect(10, 200, 221, 111))
         self.pushButton_mdcn_info.setObjectName("pushButton_mdcn_info")
         self.pushButton_record = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_record.setGeometry(QtCore.QRect(400, 310, 350, 130))
+        self.pushButton_record.setGeometry(QtCore.QRect(250, 200, 221, 111))
         self.pushButton_record.setIconSize(QtCore.QSize(16, 16))
         self.pushButton_record.setObjectName("pushButton_record")
         self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser.setGeometry(QtCore.QRect(290, 10, 461, 121))
+        self.textBrowser.setGeometry(QtCore.QRect(180, 10, 261, 61))
         self.textBrowser.setObjectName("textBrowser")
+
         #時間の表示
         self.lcdNumber_clock = QtWidgets.QLCDNumber(self.centralwidget)
-        self.lcdNumber_clock.setGeometry(QtCore.QRect(170, 140, 461, 80))
+        self.lcdNumber_clock.setGeometry(QtCore.QRect(130, 90, 231, 51))
         self.lcdNumber_clock.setObjectName("lcdNumber_clock")
 
-        #日時の表示
+        #日付の表示
         self.label_date = QtWidgets.QLabel(self.centralwidget)
-        self.label_date.setGeometry(QtCore.QRect(170, 240, 461, 61))
-        self.label_date.setObjectName("label_date")
+        self.label_date.setGeometry(QtCore.QRect(130, 150, 241, 51))
         font = QtGui.QFont()
-        font.setPointSize(64)
+        font.setPointSize(35)
         self.label_date.setFont(font)
+        self.label_date.setObjectName("label_date")
+        TopWindow.setCentralWidget(self.centralwidget)
 
-
+        #時間の更新
         timer = QTimer(self)
         timer.timeout.connect(self.updtTime)
         self.lcdNumber_clock.setSegmentStyle(QLCDNumber.Filled)
         self.lcdNumber_clock.setDigitCount(6)
         self.updtTime()
         timer.start(1000)
-
-
-        TopWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(TopWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
-        self.menubar.setObjectName("menubar")
-        TopWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(TopWindow)
-        self.statusbar.setObjectName("statusbar")
-        TopWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(TopWindow)
         self.pushButton_setting.pressed.connect(TopWindow.pressed_setting)
@@ -81,7 +75,8 @@ class Ui_TopWindow(QWidget):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:72pt; font-style:italic;\">おくすり奉行</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:24pt; font-style:italic;\">おくすり奉行</span></p></body></html>"))
+        self.label_date.setText(_translate("TopWindow", "TextLabel"))
 
     def updtTime(self):
         currentTime = QDateTime.currentDateTime().toString('hh:mm')
@@ -89,5 +84,3 @@ class Ui_TopWindow(QWidget):
         todaysdate = QDateTime.currentDateTime().toString('yyyy/MM/dd')
         todaysdate_jp = todaysdate[0:4]+'年'+todaysdate[5:7]+'月'+todaysdate[9:]+'日'
         self.label_date.setText(todaysdate_jp)
-
-

@@ -20,6 +20,13 @@ class gui(QtWidgets.QMainWindow):
     def pressed_mdcn_record(self):
         a=1#服薬記録ボタンが押されたときの処理
 
+    def updtTime(self):
+        currentTime = QDateTime.currentDateTime().toString('hh:mm')
+        self.lcdNumber_clock.display(currentTime)
+        todaysdate = QDateTime.currentDateTime().toString('yyyy/MM/dd')
+        todaysdate_jp = todaysdate[0:4]+'年'+todaysdate[5:7]+'月'+todaysdate[9:]+'日'
+        self.label_date.setText(todaysdate_jp)
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
