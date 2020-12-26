@@ -27,6 +27,10 @@ class gui(QtWidgets.QMainWindow):
         todaysdate_jp = todaysdate[0:4]+'年'+todaysdate[5:7]+'月'+todaysdate[9:]+'日'
         self.label_date.setText(todaysdate_jp)
 
+    def keyPressEvent(self, e):#escで終了
+        if e.key() == Qt.Key_Escape: 
+            sys.exit(app.exec_())
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
