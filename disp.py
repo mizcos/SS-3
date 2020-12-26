@@ -1,7 +1,9 @@
 import sys
 from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
 from top_ui import Ui_TopWindow
-
+import datetime
 
 class gui(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
@@ -22,5 +24,8 @@ class gui(QtWidgets.QMainWindow):
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     window = gui()
+    #window.showFullScreen()
     window.show()
     sys.exit(app.exec_())
+
+
