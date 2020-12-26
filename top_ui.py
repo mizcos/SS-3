@@ -46,7 +46,7 @@ class Ui_TopWindow(QWidget):
         self.label_date = QtWidgets.QLabel(self.centralwidget)
         self.label_date.setGeometry(QtCore.QRect(130, 150, 241, 51))
         font = QtGui.QFont()
-        font.setPointSize(35)
+        font.setPointSize(25)
         self.label_date.setFont(font)
         self.label_date.setObjectName("label_date")
         TopWindow.setCentralWidget(self.centralwidget)
