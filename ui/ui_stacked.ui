@@ -20,7 +20,7 @@
       <x>0</x>
       <y>0</y>
       <width>481</width>
-      <height>321</height>
+      <height>320</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -106,7 +106,7 @@
        </font>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>2021年1月5日</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_mdcn_info">
@@ -1186,7 +1186,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>朝食前</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_bfr_lnch">
@@ -1199,7 +1199,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>昼食前</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_bfr_dnr">
@@ -1212,7 +1212,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>夕食前</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_aftr_brkfst">
@@ -1225,7 +1225,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>朝食後</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_aftr_lnch">
@@ -1238,7 +1238,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>昼食後</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_aft_dnr">
@@ -1251,7 +1251,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>夕食後</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_bfr_slp">
@@ -1264,7 +1264,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>就寝前</string>
       </property>
      </widget>
     </widget>
@@ -1442,24 +1442,198 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page_15">
+     <widget class="QPushButton" name="pushButton_return_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>121</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../image/capsule_return.png</normaloff>../image/capsule_return.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="graphicsView_disp_mdcn_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>110</y>
+        <width>231</width>
+        <height>161</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_disp_mdcn_back_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>270</y>
+        <width>91</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>前</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_disp_mdcn_next_3">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>270</y>
+        <width>91</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>次</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_disp_mdcn_name_2">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>70</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>名前：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_disp_mdcn_time">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>120</y>
+        <width>181</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>朝・夕　お食事後</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_disp_mdcn_num_2">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>230</y>
+        <width>71</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>n錠</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_17">
+     <widget class="QPushButton" name="pushButton_return_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>121</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../image/capsule_return.png</normaloff>../image/capsule_return.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>30</y>
+        <width>261</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>29</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>服薬記録送信履歴</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton_setting</sender>
+   <sender>pushButton_return_6</sender>
    <signal>pressed()</signal>
    <receiver>MainWindow</receiver>
-   <slot>gopage_setting()</slot>
+   <slot>gopage_top()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>55</x>
-     <y>32</y>
+     <x>80</x>
+     <y>73</y>
     </hint>
     <hint type="destinationlabel">
-     <x>49</x>
-     <y>319</y>
+     <x>118</x>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1475,7 +1649,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>97</x>
-     <y>372</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1491,7 +1665,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>133</x>
-     <y>319</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1507,7 +1681,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>238</x>
-     <y>319</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1523,7 +1697,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>338</x>
-     <y>319</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1539,7 +1713,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
-     <y>295</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1592,10 +1766,74 @@
    </hints>
   </connection>
   <connection>
+   <sender>pushButton_return_7</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gopage_top()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>77</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>86</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_record</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gopage_mdcn_record()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>302</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>472</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_return_4</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gopage_top()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>77</x>
+     <y>58</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_setting</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gopage_setting()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>49</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>horizontalSlider</sender>
    <signal>valueChanged(int)</signal>
    <receiver>MainWindow</receiver>
-   <slot>set_alarm_volume()</slot>
+   <slot>set_alarm_volume(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>217</x>
@@ -1611,7 +1849,7 @@
    <sender>horizontalSlider_2</sender>
    <signal>valueChanged(int)</signal>
    <receiver>MainWindow</receiver>
-   <slot>set_oparate_volume()</slot>
+   <slot>set_oparate_volume(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>213</x>
@@ -1667,7 +1905,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>23</x>
-     <y>349</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1683,7 +1921,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>75</x>
-     <y>361</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1699,7 +1937,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>177</x>
-     <y>380</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1715,7 +1953,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>244</x>
-     <y>359</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1731,7 +1969,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>315</x>
-     <y>374</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1747,7 +1985,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>420</x>
-     <y>367</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1763,7 +2001,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>104</x>
-     <y>365</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1779,7 +2017,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>302</x>
-     <y>347</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1795,7 +2033,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>144</x>
-     <y>355</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1811,7 +2049,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>334</x>
-     <y>364</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1827,7 +2065,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>391</x>
-     <y>390</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1843,7 +2081,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>32</x>
-     <y>388</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1859,7 +2097,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>198</x>
-     <y>389</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1875,7 +2113,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>8</x>
-     <y>363</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1891,7 +2129,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>26</x>
-     <y>375</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1907,7 +2145,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>159</x>
-     <y>346</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1923,7 +2161,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>204</x>
-     <y>383</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1939,7 +2177,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>288</x>
-     <y>386</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1955,7 +2193,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>151</x>
-     <y>398</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -1971,39 +2209,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>101</x>
-     <y>392</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_record</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>gopage_mdcn_record()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>302</x>
-     <y>259</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>472</x>
-     <y>363</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_return_4</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>gopage_top()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>77</x>
-     <y>58</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>159</x>
-     <y>331</y>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
@@ -2020,8 +2226,8 @@
   <slot>set_mealtime_breakfast()</slot>
   <slot>set_mealtime_lanch()</slot>
   <slot>set_mealtime_dinner()</slot>
-  <slot>set_alarm_volume()</slot>
-  <slot>set_oparate_volume()</slot>
+  <slot>set_alarm_volume(int)</slot>
+  <slot>set_oparate_volume(int)</slot>
   <slot>disp_mdcn_back()</slot>
   <slot>disp_mdcn_next()</slot>
   <slot>slct_yes()</slot>

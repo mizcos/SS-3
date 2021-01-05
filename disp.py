@@ -18,10 +18,10 @@ class gui(QtWidgets.QMainWindow):
         self.ui.stackedWidget.setCurrentIndex(0)
 
     def gopage_mdcn_info(self):
-        a=1
+        self.ui.stackedWidget.setCurrentIndex(11)
         
     def gopage_mdcn_record(self):
-        a=1#服薬記録ボタンが押されたときの処理
+        self.ui.stackedWidget.setCurrentIndex(12)
 
 
     def gopage_set_adress(self):
@@ -35,22 +35,28 @@ class gui(QtWidgets.QMainWindow):
 
 
     def slct_yes(self):
+        #「薬を飲んだ」ボタンを押した処理
         a=1
 
     def slct_yet(self):
+        #「食事がまだ」ボタンを押した処理
         a=1
 
     def slct_no(self):
+        #「飲んでいない」ボタンを押した処理
         a=1
 
     def set_snooze(self):
+        #「薬を飲んだ」ボタンを押した処理
         a=1
 
-    def set_oparate_volume(self):
+    def set_oparate_volume(self,value):
         a=1
+        #value -> 0~99でのスライダの値，操作音量
 
-    def set_alarm_volume(self):
+    def set_alarm_volume(self,value):
         a=1
+        #value -> 0~99でのスライダの値，アラーム音量
 
     def set_mealtime_breakfast(self):
         a=1
@@ -62,15 +68,19 @@ class gui(QtWidgets.QMainWindow):
         a=1
 
     def reason_wkup_late(self):
+        #「起床時間が遅い」ボタンを押した処理
         a=1
 
     def reason_bad_condition(self):
+        #「体調不良」ボタンを押した処理
         a=1
 
     def reason_have_no_mdcn(self):
+        #「薬がない，忘れた」ボタンを押した処理
         a=1
 
     def reason_other(self):
+        #「その他」ボタンを押した処理
         a=1
 
     def disp_mdcn_back(self):
@@ -78,6 +88,7 @@ class gui(QtWidgets.QMainWindow):
     
     def disp_mdcn_next(self):
         a=1
+
 
     
     def updtTime(self):
@@ -94,13 +105,9 @@ class gui(QtWidgets.QMainWindow):
 
  
 
-
-
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     window = gui()
     #window.showFullScreen()
     window.show()
     sys.exit(app.exec_())
-
-
