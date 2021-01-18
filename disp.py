@@ -39,12 +39,12 @@ class gui(QtWidgets.QMainWindow):
     def slct_yes(self):
         #「薬を飲んだ」ボタンを押した処理
         self.var.tmp_mdcn_record.cond="薬を飲んだ";
-        self.var.push_mdcn_record("hoge");
+        self.var.push_mdcn_record();
 
     def slct_yet(self):
         #「食事がまだ」ボタンを押した処理
         self.var.tmp_mdcn_record.cond="食事がまだ";
-        self.var.push_mdcn_record("hoge");
+        self.var.push_mdcn_record();
 
     def slct_no(self):
         #「飲んでいない」ボタンを押した処理
@@ -53,7 +53,7 @@ class gui(QtWidgets.QMainWindow):
 
     def set_snooze(self):
         #「薬を飲んだ」ボタンを押した処理
-        
+        a=1;
 
     def set_oparate_volume(self,value):
         #value -> 0~99でのスライダの値，操作音量
@@ -75,33 +75,36 @@ class gui(QtWidgets.QMainWindow):
     def reason_wkup_late(self):
         #「起床時間が遅い」ボタンを押した処理
         self.var.tmp_mdcn_record.reason="起床時間が遅い";
-        self.var.push_mdcn_record("hoge");
+        self.var.push_mdcn_record();
 
     def reason_bad_condition(self):
         #「体調不良」ボタンを押した処理
         self.var.tmp_mdcn_record.reason="体調不良";
-        self.var.push_mdcn_record("hoge");
+        self.var.push_mdcn_record();
 
     def reason_have_no_mdcn(self):
         #「薬がない，忘れた」ボタンを押した処理
         self.var.tmp_mdcn_record.reason="薬がない，忘れた";
-        self.var.push_mdcn_record("hoge");
+        self.var.push_mdcn_record();
 
     def reason_other(self):
         #「その他」ボタンを押した処理
         self.var.tmp_mdcn_record.reason="その他";
-        self.var.push_mdcn_record("hoge");
+        self.var.push_mdcn_record();
 
     def disp_mdcn_back(self):
-        self.var.checking_mdcn_number -= 1;
-        if self.var.checking_mdcn_number<0:
-            self.var.checking_mdcn_number = 0;
-    
+        self.var.checking_count -= 1;
+        if self.var.checking_count<0:
+            self.var.checking_count = 0;
+        self.var.tmp_mdcn_record.id = self.var.list_ararm_setting[self.var.checking_count][0];
+
     def disp_mdcn_next(self):
-        self.var.checking_mdcn_number += 1;
-        if self.var.checking_mdcn_number>10:
+        self.var.checking_count += 1;
+        if self.var.checking_count>10:
             # TODO : 上限の値指定
-            self.var.checking_mdcn_number = 10;
+            self.var.checking_count = 10;
+        self.var.tmp_mdcn_record.id = self.var.list_ararm_setting[self.var.checking_count][0]
+
     
     def updtTime(self):
         currentTime = QDateTime.currentDateTime().toString('hh:mm')

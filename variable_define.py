@@ -5,7 +5,7 @@ import datetime
 class format_mdcn_record:
     def __init__(self):
         self.date = 'yyyy/MM/dd hh:mm:ss';
-        self.name = 'poyo';
+        self.id = 0;
         self.cond = 'hoge';
         self.reason = ' ';
     def output(self):
@@ -27,10 +27,10 @@ class format_ararm_setting:
         # mdcn = [ [id1, amount1],[id2,amount2],... ]
 
 class variables:
-    def __init__(self)
+    def __init__(self):
         self.ararm_sound_volume = 50;
         self.operation_sound_volume = 50;
-        self.checking_mdcn_number = 0;
+        self.checking_mdcn_count = 0;
         # 服用記録の格納 一時保存変数に入れて，確定したらdbに入れる
         self.tmp_mdcn_record = format_mdcn_record();
         self.db_mdcn_record=[];
@@ -48,7 +48,7 @@ class variables:
         self.list_ararm_setting.append(['12:00',[[1,3],[4,1],[5,1]]]);
         self.list_ararm_setting.append(['17:00',[[1,3],[2,1],[3,2],[6,1]]]);
 
-    def push_mdcn_record(self,name):
+    def push_mdcn_record(self):
         # 一時保存されている服用記録をDBに入れる
         self.tmp_mdcn_record.date = QDateTime.currentDateTime().toString('yyyy/MM/dd hh:mm:ss');
         self.db_mdcn_record.append(self.tmp_mdcn_record.output());
