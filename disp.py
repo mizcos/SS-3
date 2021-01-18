@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from ui.ui_stacked import Ui_MainWindow
+from variable_define import variables
 import datetime
 
 class gui(QtWidgets.QMainWindow):
@@ -10,6 +11,7 @@ class gui(QtWidgets.QMainWindow):
         super(gui, self).__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.var = variables()
 
     def gopage_setting (self):
         self.ui.stackedWidget.setCurrentIndex(1)
@@ -36,27 +38,30 @@ class gui(QtWidgets.QMainWindow):
 
     def slct_yes(self):
         #「薬を飲んだ」ボタンを押した処理
-        a=1
+        self.var.tmp_mdcn_record.cond="薬を飲んだ";
+        self.var.push_mdcn_record("hoge");
 
     def slct_yet(self):
         #「食事がまだ」ボタンを押した処理
-        a=1
+        self.var.tmp_mdcn_record.cond="食事がまだ";
+        self.var.push_mdcn_record("hoge");
 
     def slct_no(self):
         #「飲んでいない」ボタンを押した処理
-        a=1
+        self.var.tmp_mdcn_record.cond="飲んでいない";
+        # まだdbにはpushしない
 
     def set_snooze(self):
         #「薬を飲んだ」ボタンを押した処理
-        a=1
+        
 
     def set_oparate_volume(self,value):
-        a=1
         #value -> 0~99でのスライダの値，操作音量
+        self.var.operation_sound_volume = value;
 
     def set_alarm_volume(self,value):
-        a=1
         #value -> 0~99でのスライダの値，アラーム音量
+        self.var.ararm_sound_volume = value;
 
     def set_mealtime_breakfast(self):
         a=1
@@ -69,27 +74,34 @@ class gui(QtWidgets.QMainWindow):
 
     def reason_wkup_late(self):
         #「起床時間が遅い」ボタンを押した処理
-        a=1
+        self.var.tmp_mdcn_record.reason="起床時間が遅い";
+        self.var.push_mdcn_record("hoge");
 
     def reason_bad_condition(self):
         #「体調不良」ボタンを押した処理
-        a=1
+        self.var.tmp_mdcn_record.reason="体調不良";
+        self.var.push_mdcn_record("hoge");
 
     def reason_have_no_mdcn(self):
         #「薬がない，忘れた」ボタンを押した処理
-        a=1
+        self.var.tmp_mdcn_record.reason="薬がない，忘れた";
+        self.var.push_mdcn_record("hoge");
 
     def reason_other(self):
         #「その他」ボタンを押した処理
-        a=1
+        self.var.tmp_mdcn_record.reason="その他";
+        self.var.push_mdcn_record("hoge");
 
     def disp_mdcn_back(self):
-        a=1
+        self.var.checking_mdcn_number -= 1;
+        if self.var.checking_mdcn_number<0:
+            self.var.checking_mdcn_number = 0;
     
     def disp_mdcn_next(self):
-        a=1
-
-
+        self.var.checking_mdcn_number += 1;
+        if self.var.checking_mdcn_number>10:
+            # TODO : 上限の値指定
+            self.var.checking_mdcn_number = 10;
     
     def updtTime(self):
         currentTime = QDateTime.currentDateTime().toString('hh:mm')
@@ -102,8 +114,6 @@ class gui(QtWidgets.QMainWindow):
         if e.key() == Qt.Key_Escape: 
             sys.exit(app.exec_())
 
-
- 
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
