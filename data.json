@@ -1,0 +1,8 @@
+{
+"mdcn_data":[
+    {"name":"カロナール錠２００","time":"朝昼夜","num":1,"img_path":"medicine_data/カロナール.jpg"},
+    {"name":"ナテグリニド錠３０ｍｇ「テバ」","time":"朝夜","num":1,"img_path":"medicine_data/ナテグリニド_テバ.jpg"},
+    {"name":"ネキシウムカプセル２０ｍｇ","time":"朝昼夜","num":2,"img_path":"medicine_data/ネキシウム.jpg"},
+    {"name":"ユベラＮカプセル１００ｍｇ","time":"夜","num":2,"img_path":"medicine_data/ユベラN.jpg"}
+]
+}
