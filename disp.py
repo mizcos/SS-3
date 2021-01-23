@@ -4,7 +4,10 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from ui.ui_stacked import Ui_MainWindow
 import datetime
+import json
+import copy
 from sound_alarm.alarm_test import playTapSound,playAlarm,stopAlarm
+
 
 class gui(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
@@ -17,6 +20,11 @@ class gui(QtWidgets.QMainWindow):
         self.snooze = 0
         self.tapvol=30
         self.alarmvol=30
+        self.mdcnlist_breakfast=[]
+        self.mdcnlist_lunch=[]
+        self.mdcnlist_dinner=[]
+        self.mdcnlist_now=[]
+        self.disp_mdcn_nowpage=0
 
         #毎秒実行される時計更新とアラーム分岐
         timer = QTimer(self)
@@ -114,12 +122,63 @@ class gui(QtWidgets.QMainWindow):
         a=1
 
     def disp_mdcn_back(self):
-        a=1
+        stopAlarm()
+        if(self.disp_mdcn_nowpage>0):
+            self.disp_mdcn_nowpage-=1
+            self.ui.label_disp_mdcn_typenum.setText(str(len(self.mdcnlist_now))+'種類')
+            self.ui.label_disp_mdcn_num.setText(str(self.mdcnlist_now[self.disp_mdcn_nowpage]['num'])+'錠')
+
+            
+            
     
     def disp_mdcn_next(self):
-        a=1
+        stopAlarm()
+        if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
+            self.disp_mdcn_nowpage +=1
+            self.ui.label_disp_mdcn_typenum.setText(str(len(self.mdcnlist_now))+'種類')
+            self.ui.label_disp_mdcn_num.setText(str(self.mdcnlist_now[self.disp_mdcn_nowpage]['num'])+'錠')
+
+    
+
+    def loadDatabase(self):
+        dataop = open('medicine_data/data.json','r')
+        data = json.load(dataop)
+
+        for mdcn in data['mdcn_data']:#各薬についてのloop
+            for t in mdcn['time']:#朝昼夜を確認
+                if t =='朝':
+                    self.mdcnlist_breakfast.append(mdcn)
+
+                if t =='昼':
+                    self.mdcnlist_lunch.append(mdcn)
+
+                if t =='夜':
+                    self.mdcnlist_dinner.append(mdcn)
+
+        print(self.mdcnlist_dinner)
 
 
+    def alarmStart(self,s):
+        self.loadDatabase()
+        #s=1:朝食，s=2,昼食，s=3 夕食
+        if s==1:
+            timing = "朝食後"
+            self.mdcnlist_now=copy.deepcopy(self.mdcnlist_breakfast)
+
+        elif s==2:
+            timing = "昼食後"
+            self.mdcnlist_now=copy.deepcopy(self.mdcnlist_lunch)
+
+        elif s==3:
+            timing = "夕食後"
+            self.mdcnlist_now=copy.deepcopy(self.mdcnlist_dinner)
+            
+        self.ui.label_disp_meal.setText(timing)
+        self.ui.label_disp_mdcn_typenum.setText(str(len(self.mdcnlist_now))+'種類')
+        self.ui.label_disp_mdcn_num.setText(str(self.mdcnlist_now[self.disp_mdcn_nowpage]['num'])+'錠')
+
+        self.ui.stackedWidget.setCurrentIndex(5)
+        playAlarm(self.alarmvol)
 
 
     def updtTime(self):
@@ -136,8 +195,7 @@ class gui(QtWidgets.QMainWindow):
         dtBrkfst = dtBrkfst + self.snooze #snoozeが設定されていたならば，その時間に
         if (dtBrkfst==0 and QTime.isValid(self.time_breakfast)):
             #朝食アラームの処理をここで
-            self.ui.stackedWidget.setCurrentIndex(5)
-            playAlarm(self.alarmvol)
+            self.alarmStart(1)
 
 
         #昼食
@@ -145,23 +203,14 @@ class gui(QtWidgets.QMainWindow):
         dtlnch = dtlnch + self.snooze #snoozeが設定されていたならば，その時間に
         if (dtlnch==0 and QTime.isValid(self.time_lunch)):
             # 昼食アラームの処理をここで
-            self.ui.stackedWidget.setCurrentIndex(5)
-            playAlarm(self.alarmvol)
+            self.alarmStart(2)
 
         #夕食
         dtdnr = QTime.secsTo(self.time_dinner,nowtime)#設定時間との差
         dtdnr = dtdnr + self.snooze #snoozeが設定されていたならば，その時間に
         if (dtdnr==0 and QTime.isValid(self.time_dinner)):
             # 夕食アラームの処理をここで
-            self.ui.stackedWidget.setCurrentIndex(5)
-            playAlarm(self.alarmvol)
-
-
-
-
-    
-
-
+            self.alarmStart(3)
 
 
 
@@ -176,6 +225,9 @@ class gui(QtWidgets.QMainWindow):
         if e.key() ==Qt.Key_Space:
             self.ui.stackedWidget.setCurrentIndex(5)
 
+    
+
+        
 
 
  
