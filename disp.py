@@ -2,6 +2,7 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from PyQt5.QtGui import QImage, QPalette, QPixmap
 from ui.ui_stacked import Ui_MainWindow
 import datetime
 import json
@@ -20,12 +21,15 @@ class gui(QtWidgets.QMainWindow):
         self.snooze = 0
         self.tapvol=30
         self.alarmvol=30
+        self.mdcnlist_all=[]
         self.mdcnlist_breakfast=[]
         self.mdcnlist_lunch=[]
         self.mdcnlist_dinner=[]
         self.mdcnlist_now=[]
+        
         self.disp_mdcn_nowpage=0
-
+        self.disp_mdcn_all_nowpage=0
+        self.loadDatabase()
         #毎秒実行される時計更新とアラーム分岐
         timer = QTimer(self)
         timer.timeout.connect(self.updtTime)
@@ -46,6 +50,15 @@ class gui(QtWidgets.QMainWindow):
     def gopage_mdcn_info(self):
         self.ui.stackedWidget.setCurrentIndex(11)
         playTapSound(self.tapvol)
+        
+        self.ui.label_disp_mdcn_num_3.setText(str(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['num'])+'錠')
+        dispimg = QImage(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['img_path'])
+        self.ui.label_disp_mdcn_name_3.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+        self.ui.label_disp_mdcn_time_3.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['time']+' 食後')
+        self.ui.label_page_3.setText(str(self.disp_mdcn_all_nowpage+1)+'/'+str(len(self.mdcnlist_all)))
+        Qdisp = QPixmap.fromImage(dispimg)
+        QdispResized = Qdisp.scaled(240,150)
+        self.ui.label_disp_mdcn_img_3.setPixmap(QdispResized)
         
     def gopage_mdcn_record(self):
         self.ui.stackedWidget.setCurrentIndex(12)
@@ -74,7 +87,8 @@ class gui(QtWidgets.QMainWindow):
     def slct_yet(self):
         #「食事がまだ」ボタンを押した処理
         self.ui.stackedWidget.setCurrentIndex(9)
-        self.snooze = self.snooze + 30*60
+        self.snooze = self.snooze + 30
+        #self.snooze = self.snooze + 30*60
         stopAlarm()
 
     def slct_no(self):
@@ -97,7 +111,7 @@ class gui(QtWidgets.QMainWindow):
 
     def set_mealtime_breakfast(self,time):
         self.time_breakfast = time
-        print(time)
+        #print(time)
 
     def set_mealtime_lunch(self,time):
         self.time_lunch = time
@@ -127,6 +141,12 @@ class gui(QtWidgets.QMainWindow):
             self.disp_mdcn_nowpage-=1
             self.ui.label_disp_mdcn_typenum.setText(str(len(self.mdcnlist_now))+'種類')
             self.ui.label_disp_mdcn_num.setText(str(self.mdcnlist_now[self.disp_mdcn_nowpage]['num'])+'錠')
+            self.ui.label_page.setText(str(self.disp_mdcn_nowpage+1)+'/'+str(len(self.mdcnlist_now)))
+
+            dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
+            Qdisp = QPixmap.fromImage(dispimg)
+            QdispResized = Qdisp.scaled(180,130)
+            self.ui.label_disp_mdcn_img.setPixmap(QdispResized)
 
             
             
@@ -137,12 +157,50 @@ class gui(QtWidgets.QMainWindow):
             self.disp_mdcn_nowpage +=1
             self.ui.label_disp_mdcn_typenum.setText(str(len(self.mdcnlist_now))+'種類')
             self.ui.label_disp_mdcn_num.setText(str(self.mdcnlist_now[self.disp_mdcn_nowpage]['num'])+'錠')
+            self.ui.label_page.setText(str(self.disp_mdcn_nowpage+1)+'/'+str(len(self.mdcnlist_now)))
+            dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
+            Qdisp = QPixmap.fromImage(dispimg)
+            QdispResized = Qdisp.scaled(180,130)
+            self.ui.label_disp_mdcn_img.setPixmap(QdispResized)
+
+
+    #お薬情報表示
+    def disp_mdcn_back_3(self):
+        if(self.disp_mdcn_all_nowpage>0):
+            self.disp_mdcn_all_nowpage -=1
+            self.ui.label_disp_mdcn_num_3.setText(str(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['num'])+'錠')
+            dispimg = QImage(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['img_path'])
+            self.ui.label_disp_mdcn_name_3.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+            self.ui.label_disp_mdcn_time_3.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['time']+' 食後')
+            self.ui.label_page_3.setText(str(self.disp_mdcn_all_nowpage+1)+'/'+str(len(self.mdcnlist_all)))
+            Qdisp = QPixmap.fromImage(dispimg)
+            QdispResized = Qdisp.scaled(240,150)
+            self.ui.label_disp_mdcn_img_3.setPixmap(QdispResized)
+
+
+    def disp_mdcn_next_3(self):
+        if(self.disp_mdcn_all_nowpage<len(self.mdcnlist_all)-1):
+            self.disp_mdcn_all_nowpage +=1
+            self.ui.label_disp_mdcn_num_3.setText(str(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['num'])+'錠')
+            dispimg = QImage(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['img_path'])
+            self.ui.label_disp_mdcn_name_3.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+            self.ui.label_disp_mdcn_time_3.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['time']+' 食後')
+            self.ui.label_page_3.setText(str(self.disp_mdcn_all_nowpage+1)+'/'+str(len(self.mdcnlist_all)))
+
+            Qdisp = QPixmap.fromImage(dispimg)
+            QdispResized = Qdisp.scaled(240,150)
+            self.ui.label_disp_mdcn_img_3.setPixmap(QdispResized)
 
     
 
     def loadDatabase(self):
         dataop = open('medicine_data/data.json','r')
         data = json.load(dataop)
+
+        self.mdcnlist_all=data['mdcn_data']
+        self.mdcnlist_breakfast=[]
+        self.mdcnlist_lunch=[]
+        self.mdcnlist_dinner=[]
 
         for mdcn in data['mdcn_data']:#各薬についてのloop
             for t in mdcn['time']:#朝昼夜を確認
@@ -160,9 +218,11 @@ class gui(QtWidgets.QMainWindow):
 
     def alarmStart(self,s):
         self.loadDatabase()
+        self.mdcnlist_now=[]
         #s=1:朝食，s=2,昼食，s=3 夕食
         if s==1:
             timing = "朝食後"
+            
             self.mdcnlist_now=copy.deepcopy(self.mdcnlist_breakfast)
 
         elif s==2:
@@ -176,7 +236,10 @@ class gui(QtWidgets.QMainWindow):
         self.ui.label_disp_meal.setText(timing)
         self.ui.label_disp_mdcn_typenum.setText(str(len(self.mdcnlist_now))+'種類')
         self.ui.label_disp_mdcn_num.setText(str(self.mdcnlist_now[self.disp_mdcn_nowpage]['num'])+'錠')
-
+        dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
+        Qdisp = QPixmap.fromImage(dispimg)
+        QdispResized = Qdisp.scaled(180,130)
+        self.ui.label_disp_mdcn_img.setPixmap(QdispResized)
         self.ui.stackedWidget.setCurrentIndex(5)
         playAlarm(self.alarmvol)
 
@@ -192,7 +255,7 @@ class gui(QtWidgets.QMainWindow):
 
         #朝食
         dtBrkfst = QTime.secsTo(self.time_breakfast,nowtime)#設定時間との差
-        dtBrkfst = dtBrkfst + self.snooze #snoozeが設定されていたならば，その時間に
+        dtBrkfst = dtBrkfst - self.snooze #snoozeが設定されていたならば，その時間に
         if (dtBrkfst==0 and QTime.isValid(self.time_breakfast)):
             #朝食アラームの処理をここで
             self.alarmStart(1)
@@ -200,14 +263,14 @@ class gui(QtWidgets.QMainWindow):
 
         #昼食
         dtlnch = QTime.secsTo(self.time_lunch,nowtime)#設定時間との差
-        dtlnch = dtlnch + self.snooze #snoozeが設定されていたならば，その時間に
+        dtlnch = dtlnch - self.snooze #snoozeが設定されていたならば，その時間に
         if (dtlnch==0 and QTime.isValid(self.time_lunch)):
             # 昼食アラームの処理をここで
             self.alarmStart(2)
 
         #夕食
         dtdnr = QTime.secsTo(self.time_dinner,nowtime)#設定時間との差
-        dtdnr = dtdnr + self.snooze #snoozeが設定されていたならば，その時間に
+        dtdnr = dtdnr - self.snooze #snoozeが設定されていたならば，その時間に
         if (dtdnr==0 and QTime.isValid(self.time_dinner)):
             # 夕食アラームの処理をここで
             self.alarmStart(3)

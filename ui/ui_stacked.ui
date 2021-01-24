@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QLabel" name="label">
@@ -679,32 +679,6 @@
        <string>昼食後</string>
       </property>
      </widget>
-     <widget class="QStackedWidget" name="stackedWidget_disp_mdcn">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>90</y>
-        <width>181</width>
-        <height>131</height>
-       </rect>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="page">
-       <widget class="QGraphicsView" name="graphicsView_disp_mdcn">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>181</width>
-          <height>131</height>
-         </rect>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="page_5"/>
-     </widget>
      <widget class="QPushButton" name="pushButton_disp_mdcn_back">
       <property name="geometry">
        <rect>
@@ -716,7 +690,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>24</pointsize>
        </font>
       </property>
       <property name="text">
@@ -734,7 +708,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>24</pointsize>
        </font>
       </property>
       <property name="text">
@@ -799,32 +773,32 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>120</y>
+        <y>90</y>
         <width>81</width>
         <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>お薬</string>
+       <string>全部で</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_disp_mdcn_typenum">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>160</y>
+        <y>140</y>
         <width>81</width>
         <height>51</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>23</pointsize>
        </font>
       </property>
       <property name="text">
@@ -842,11 +816,57 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>26</pointsize>
        </font>
       </property>
       <property name="text">
        <string>n錠</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_disp_mdcn_img">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>90</y>
+        <width>180</width>
+        <height>130</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_page">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>90</y>
+        <width>61</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="text">
+       <string>1/3</string>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::LinksAccessibleByKeyboard</set>
       </property>
      </widget>
     </widget>
@@ -1037,32 +1057,6 @@
        </rect>
       </property>
      </widget>
-     <widget class="QStackedWidget" name="stackedWidget_disp_mdcn_2">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>120</y>
-        <width>201</width>
-        <height>141</height>
-       </rect>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="page_6">
-       <widget class="QGraphicsView" name="graphicsView_disp_mdcn_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>201</width>
-          <height>141</height>
-         </rect>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="page_7"/>
-     </widget>
      <widget class="QPushButton" name="pushButton_disp_mdcn_back_2">
       <property name="geometry">
        <rect>
@@ -1102,7 +1096,7 @@
      <widget class="QLabel" name="label_disp_mdcn_name">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>250</x>
         <y>120</y>
         <width>181</width>
         <height>31</height>
@@ -1154,6 +1148,19 @@
       </property>
       <property name="text">
        <string>食事がまだ</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_disp_mdcn_img_2">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>120</y>
+        <width>180</width>
+        <height>130</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
       </property>
      </widget>
     </widget>
@@ -1308,11 +1315,11 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>25</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>n 分後に再アラーム</string>
+       <string>30分後に再アラーム</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton">
@@ -1469,16 +1476,6 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QGraphicsView" name="graphicsView_disp_mdcn_3">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>110</y>
-        <width>231</width>
-        <height>161</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_disp_mdcn_back_3">
       <property name="geometry">
        <rect>
@@ -1515,12 +1512,12 @@
        <string>次</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_disp_mdcn_name_2">
+     <widget class="QLabel" name="label_disp_mdcn_name_3">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>120</x>
         <y>70</y>
-        <width>181</width>
+        <width>341</width>
         <height>31</height>
        </rect>
       </property>
@@ -1533,7 +1530,7 @@
        <string>名前：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_disp_mdcn_time">
+     <widget class="QLabel" name="label_disp_mdcn_time_3">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -1551,7 +1548,7 @@
        <string>朝・夕　お食事後</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_disp_mdcn_num_2">
+     <widget class="QLabel" name="label_disp_mdcn_num_3">
       <property name="geometry">
        <rect>
         <x>340</x>
@@ -1567,6 +1564,52 @@
       </property>
       <property name="text">
        <string>n錠</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_disp_mdcn_img_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>110</y>
+        <width>241</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_page_3">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>270</y>
+        <width>61</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="text">
+       <string>1/3</string>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::LinksAccessibleByKeyboard</set>
       </property>
      </widget>
     </widget>
@@ -2213,6 +2256,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_disp_mdcn_next_3</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>disp_mdcn_next_3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>293</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>395</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_disp_mdcn_back_3</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>disp_mdcn_back_3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>54</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>signal1()</signal>
@@ -2238,5 +2313,7 @@
   <slot>set_mealtime_breakfast(QTime)</slot>
   <slot>set_mealtime_lunch(QTime)</slot>
   <slot>set_mealtime_dinner(QTime)</slot>
+  <slot>disp_mdcn_back_3()</slot>
+  <slot>disp_mdcn_next_3()</slot>
  </slots>
 </ui>
