@@ -148,7 +148,8 @@ class gui(QtWidgets.QMainWindow):
 #  例　self.mdcnlist[self.disp_mdcn_nowpage]['name']で表示されている薬の名前取得
 #
 #
-#
+#すでに書かれているコードは画像と変更と画面の遷移についてです．
+#以下の10の関数について，実装をお願いします．
 #
 #---------------------------------------------------------------
 
@@ -194,6 +195,9 @@ class gui(QtWidgets.QMainWindow):
             QdispResized = Qdisp.scaled(180,130)
             self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+
+        else:
+            self.ui.stackedWidget.setCurrentIndex(0)
 
         
 
