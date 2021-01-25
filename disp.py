@@ -70,7 +70,7 @@ class gui(QtWidgets.QMainWindow):
         playTapSound(self.tapvol)
 
     def gopage_set_mealtime(self):
-        self.ui.stackedWidget.setCurrentIndex(3)
+        self.ui.stackedWidget.setCurrentIndex(13)
         playTapSound(self.tapvol)
 
     def gopage_set_volume(self):
@@ -129,6 +129,39 @@ class gui(QtWidgets.QMainWindow):
 
     def set_mealtime_dinner(self,time):
         self.time_dinner = time
+
+
+
+    def slider_breakfast(self,val):
+        self.time_breakfast = QTime(5, 0, 0).addSecs(15*val*60)
+        #print(self.time_breakfast)
+        self.ui.timeEdit_breakfast_3.setDateTime(QDateTime(QDate(2000, 1, 2), self.time_breakfast))
+
+            
+
+    def slider_lunch(self,val):
+        self.time_lunch = QTime(10, 0, 0).addSecs(15*val*60)
+        print(self.time_lunch)
+        self.ui.timeEdit_lunch_3.setDateTime(QDateTime(QDate(2000, 1, 2), self.time_lunch))
+
+
+    def slider_dinner(self,val):
+        self.time_dinner = QTime(17, 0, 0).addSecs(15*val*60)
+        print(self.time_dinner)
+        self.ui.timeEdit_dinner_3.setDateTime(QDateTime(QDate(2000, 1, 2), self.time_dinner))
+
+
+        
+
+
+
+
+
+
+
+
+
+
 
 #--------------------------------------------------------
 #
@@ -396,7 +429,6 @@ class gui(QtWidgets.QMainWindow):
             #朝食アラームの処理をここで
             self.alarmStart(1)
 
-
         #昼食
         dtlnch = QTime.secsTo(self.time_lunch,nowtime)#設定時間との差
         dtlnch = dtlnch - self.snooze #snoozeが設定されていたならば，その時間に
@@ -410,7 +442,6 @@ class gui(QtWidgets.QMainWindow):
         if (dtdnr==0 and QTime.isValid(self.time_dinner)):
             # 夕食アラームの処理をここで
             self.alarmStart(3)
-
 
 
 
