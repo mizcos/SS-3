@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QLabel" name="label">
@@ -1019,86 +1019,42 @@
        <string>薬を飲まない</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="page_10">
-     <widget class="QPushButton" name="pushButton_return_5">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>121</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../image/capsule_return.png</normaloff>../image/capsule_return.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>100</width>
-        <height>100</height>
-       </size>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
      <widget class="QLCDNumber" name="lcdNumber_clock_4">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>20</y>
+        <x>50</x>
+        <y>260</y>
         <width>311</width>
         <height>61</height>
        </rect>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="page_10">
      <widget class="QPushButton" name="pushButton_disp_mdcn_back_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>261</y>
+        <x>50</x>
+        <y>240</y>
         <width>91</width>
         <height>51</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>前</string>
+       <string>取消</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_disp_mdcn_next_2">
+     <widget class="QLabel" name="label_disp_mdcn_name_4">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>260</y>
-        <width>91</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>次</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_disp_mdcn_name">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>120</y>
-        <width>181</width>
+        <x>0</x>
+        <y>30</y>
+        <width>221</width>
         <height>31</height>
        </rect>
       </property>
@@ -1111,12 +1067,12 @@
        <string>名前：</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_slct_yes_3">
+     <widget class="QPushButton" name="mdcn_yes">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>150</y>
-        <width>201</width>
+        <x>220</x>
+        <y>20</y>
+        <width>251</width>
         <height>61</height>
        </rect>
       </property>
@@ -1124,43 +1080,69 @@
        <string>薬を飲んだ</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_slct_no_3">
+     <widget class="QPushButton" name="mdcn_no_late">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>250</y>
-        <width>201</width>
+        <x>220</x>
+        <y>80</y>
+        <width>251</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>薬を飲まない</string>
+       <string>薬を飲まない-起床遅い</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_slct_yet_3">
+     <widget class="QLabel" name="label_disp_mdcn_img_4">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>200</y>
-        <width>201</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>食事がまだ</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_disp_mdcn_img_2">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>120</y>
+        <x>10</x>
+        <y>80</y>
         <width>180</width>
         <height>130</height>
        </rect>
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="mdcn_no_badcon">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>140</y>
+        <width>251</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>薬を飲まない-体調が悪い</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="mdcn_no_other">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>260</y>
+        <width>251</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>薬を飲まない-その他</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="mdcn_no_zero">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>200</y>
+        <width>251</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>薬を飲まない-薬がない,忘れた</string>
       </property>
      </widget>
     </widget>
@@ -1889,102 +1871,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_return_5</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>gopage_top()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>57</x>
-     <y>73</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>23</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_disp_mdcn_back_2</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>disp_mdcn_back()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>75</x>
-     <y>296</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>75</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_disp_mdcn_next_2</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>disp_mdcn_next()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>178</x>
-     <y>294</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>177</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_slct_yes_3</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slct_yes()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>322</x>
-     <y>186</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>244</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_slct_yet_3</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slct_yet()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>384</x>
-     <y>242</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>315</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_slct_no_3</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slct_no()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>424</x>
-     <y>295</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>420</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton</sender>
    <signal>pressed()</signal>
    <receiver>MainWindow</receiver>
@@ -2017,14 +1903,14 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_slct_yet_2</sender>
+   <sender>pushButton_slct_yes</sender>
    <signal>pressed()</signal>
    <receiver>MainWindow</receiver>
-   <slot>slct_yet()</slot>
+   <slot>slct_yes()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>147</x>
-     <y>269</y>
+     <x>80</x>
+     <y>270</y>
     </hint>
     <hint type="destinationlabel">
      <x>144</x>
@@ -2060,22 +1946,6 @@
     </hint>
     <hint type="destinationlabel">
      <x>391</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_slct_yes</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slct_yes()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>85</x>
-     <y>291</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>32</x>
      <y>274</y>
     </hint>
    </hints>
@@ -2288,9 +2158,106 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_disp_mdcn_back_2</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mdcn_reset()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>270</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>109</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mdcn_yes</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mdcn_taken()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>306</x>
+     <y>56</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mdcn_no_late</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>reason_wkup_late()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>178</x>
+     <y>385</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mdcn_no_badcon</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mdcn_no_badcon()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>368</x>
+     <y>184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>390</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mdcn_no_zero</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mdcn_no_havezero()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>411</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>428</x>
+     <y>374</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mdcn_no_other</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mdcn_no_other()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>449</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>410</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>signal1()</signal>
+  <signal>signal2()</signal>
   <slot>gopage_setting()</slot>
   <slot>gopage_mdcn_info()</slot>
   <slot>gopage_mdcn_record()</slot>
@@ -2315,5 +2282,12 @@
   <slot>set_mealtime_dinner(QTime)</slot>
   <slot>disp_mdcn_back_3()</slot>
   <slot>disp_mdcn_next_3()</slot>
+  <slot>mdcn_reset()</slot>
+  <slot>mdcn_taken()</slot>
+  <slot>mdcn_nottaken()</slot>
+  <slot>mdcn_no_late()</slot>
+  <slot>mdcn_no_havezero()</slot>
+  <slot>mdcn_no_badcon()</slot>
+  <slot>mdcn_no_other()</slot>
  </slots>
 </ui>

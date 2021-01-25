@@ -78,11 +78,22 @@ class gui(QtWidgets.QMainWindow):
         playTapSound(self.tapvol)
 
 
+
+
     def slct_yes(self):
         #「薬を飲んだ」ボタンを押した処理
-        self.ui.stackedWidget.setCurrentIndex(7)
+        #self.ui.stackedWidget.setCurrentIndex(7)
         self.snooze =0
         stopAlarm()
+        self.disp_mdcn_nowpage=0
+        dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
+        Qdisp = QPixmap.fromImage(dispimg)
+        QdispResized = Qdisp.scaled(180,130)
+        self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
+        self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+        self.ui.stackedWidget.setCurrentIndex(7)
+
+
 
     def slct_yet(self):
         #「食事がまだ」ボタンを押した処理
@@ -119,21 +130,135 @@ class gui(QtWidgets.QMainWindow):
     def set_mealtime_dinner(self,time):
         self.time_dinner = time
 
+#--------------------------------------------------------
+#
+#   全て飲まないを選択ー＞一括で飲まない操作
+#   薬を飲んだ　　　　　ー＞1つずつの薬に対して飲む・飲まない（理由）を選択
+#　 選択したら次の薬を表示，
+#　 全て飲み終えたらトップに戻る
+#   取り消しボタンで前の薬に戻る
+#
+#変数説明
+#   self.mdcnlist_now       :その時点で飲むべき薬のリスト
+#   self.disp_mdcn_nowpage  :表示されている薬のインデックス
+#
+#   例　self.mdcnlist[self.disp_mdcn_nowpage] で現在表示されている薬の情報を取得できる
+#       listはjsonの中身と同じで，name,time, num,img_pathを持つ
+#
+#  例　self.mdcnlist[self.disp_mdcn_nowpage]['name']で表示されている薬の名前取得
+#
+#
+#
+#
+#---------------------------------------------------------------
+
+
+   #「全て飲まない」を選択したあとの操作です
+
     def reason_wkup_late(self):
         #「起床時間が遅い」ボタンを押した処理
-        a=1
+        self.ui.stackedWidget.setCurrentIndex(0) #top画面に戻る
 
     def reason_bad_condition(self):
         #「体調不良」ボタンを押した処理
         a=1
+        self.ui.stackedWidget.setCurrentIndex(0)
 
     def reason_have_no_mdcn(self):
         #「薬がない，忘れた」ボタンを押した処理
-        a=1
+        self.ui.stackedWidget.setCurrentIndex(0)
 
     def reason_other(self):
         #「その他」ボタンを押した処理
-        a=1
+        self.ui.stackedWidget.setCurrentIndex(0)
+
+
+    #以下は「薬を飲んだ」　あとの各薬に対しての操作です
+    def mdcn_reset(self):
+        #取り消しボタンを押した処理，前の薬に戻ります
+        if(self.disp_mdcn_nowpage>0):
+            self.disp_mdcn_nowpage-=1
+            dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
+            Qdisp = QPixmap.fromImage(dispimg)
+            QdispResized = Qdisp.scaled(180,130)
+            self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
+            self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+
+
+    def mdcn_taken(self):
+        #「薬を飲んだ」ボタンを押した処理
+        if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
+            self.disp_mdcn_nowpage+=1
+            dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
+            Qdisp = QPixmap.fromImage(dispimg)
+            QdispResized = Qdisp.scaled(180,130)
+            self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
+            self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+
+        
+
+
+    def mdcn_no_late(self):
+        #薬を飲まないー起床が遅い」ボタン
+        if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
+            self.disp_mdcn_nowpage+=1
+            dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
+            Qdisp = QPixmap.fromImage(dispimg)
+            QdispResized = Qdisp.scaled(180,130)
+            self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
+            self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+        
+        else:
+            self.ui.stackedWidget.setCurrentIndex(0)
+
+
+
+    def mdcn_no_badcon(self):
+        #薬を飲まないー体調が悪い」ボタン
+        if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
+            self.disp_mdcn_nowpage+=1
+            dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
+            Qdisp = QPixmap.fromImage(dispimg)
+            QdispResized = Qdisp.scaled(180,130)
+            self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
+            self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+        
+        else:
+            self.ui.stackedWidget.setCurrentIndex(0)
+
+
+
+    def mdcn_no_havezero(self):
+        #「薬を飲まないー薬がない・忘れた」ボタン
+        if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
+            self.disp_mdcn_nowpage+=1
+            dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
+            Qdisp = QPixmap.fromImage(dispimg)
+            QdispResized = Qdisp.scaled(180,130)
+            self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
+            self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+
+        else:
+            self.ui.stackedWidget.setCurrentIndex(0)
+
+
+
+    def mdcn_no_other(self):
+        #「薬を飲まないーその他」ボタン
+        if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
+            self.disp_mdcn_nowpage+=1
+            dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
+            Qdisp = QPixmap.fromImage(dispimg)
+            QdispResized = Qdisp.scaled(180,130)
+            self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
+            self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+
+        else:
+            self.ui.stackedWidget.setCurrentIndex(0)
+
+
+#ボタン処理，ここまで
+#------------------------------------------------------------------------
 
     def disp_mdcn_back(self):
         stopAlarm()
@@ -213,7 +338,7 @@ class gui(QtWidgets.QMainWindow):
                 if t =='夜':
                     self.mdcnlist_dinner.append(mdcn)
 
-        print(self.mdcnlist_dinner)
+        #print(self.mdcnlist_dinner)
 
 
     def alarmStart(self,s):
@@ -248,9 +373,16 @@ class gui(QtWidgets.QMainWindow):
         currentTime = QDateTime.currentDateTime().toString('hh:mm')
         self.ui.lcdNumber_clock.display(currentTime)
         self.ui.lcdNumber_clock_2.display(currentTime)
+        self.ui.lcdNumber_clock_4.display(currentTime)
+        self.ui.lcdNumber_clock_5.display(currentTime)
+
         todaysdate = QDateTime.currentDateTime().toString('yyyy/MM/dd')
         todaysdate_jp = todaysdate[0:4]+'年'+todaysdate[5:7]+'月'+todaysdate[8:]+'日'
         self.ui.label_date.setText(todaysdate_jp)
+        self.ui.label_date_4.setText(todaysdate_jp)
+        self.ui.label_date_2.setText(todaysdate_jp)
+        self.ui.label_date_3.setText(todaysdate_jp)
+
         nowtime =QDateTime.time(QDateTime.currentDateTime())
 
         #朝食
