@@ -1,0 +1,5 @@
+起動・アラーム停止時：hyoushigi2.mp3
+決定・選択時：select.mp3
+「戻る」押下時：cancel.mp3
+
+ファイル名を変更していますが, これらの素材はすべて「効果音ラボ」(https://soundeffect-lab.info/)よりダウンロードしたものです. 
