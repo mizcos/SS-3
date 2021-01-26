@@ -32,23 +32,24 @@ pathTothis = os.path.dirname(os.path.abspath("__file__"))
 #pygame.mixer.music.stop()
 
 def playTapSound(vol):
-    pygame.mixer.init()
-    pygame.mixer.music.load("sound_alarm/hyoushigi2.mp3")
+    #pygame.mixer.init()
+    #pygame.mixer.music.load("sound_alarm/hyoushigi2.mp3")
     opVol = vol/100
-    pygame.mixer.music.set_volume(opVol)
-    pygame.mixer.music.play(0)
+    #pygame.mixer.music.set_volume(opVol)
+    #pygame.mixer.music.play(0)
 
 
 def playAlarm(vol):
-    pygame.mixer.init()
-    pygame.mixer.music.set_volume(vol)
-    pygame.mixer.music.load("sound_alarm/Alarm_bugyo.mp3")
+    #pygame.mixer.init()
+    #pygame.mixer.music.set_volume(vol)
+    #pygame.mixer.music.load("sound_alarm/Alarm_bugyo.mp3")
     alVol = vol/100
-    pygame.mixer.music.set_volume(alVol)
-    pygame.mixer.music.play(-1)
+    #pygame.mixer.music.set_volume(alVol)
+    #pygame.mixer.music.play(-1)
 
     
 def stopAlarm():
-    pygame.mixer.music.stop()
+    a = 0
+    #pygame.mixer.music.stop()
 
 
