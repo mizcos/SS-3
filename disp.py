@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import QImage, QPalette, QPixmap
 from ui.ui_stacked import Ui_MainWindow
+from record import RecordData
 import datetime
 import json
 import copy
@@ -26,6 +27,8 @@ class gui(QtWidgets.QMainWindow):
         self.mdcnlist_lunch=[]
         self.mdcnlist_dinner=[]
         self.mdcnlist_now=[]
+
+        self.record = RecordData() # 服薬履歴記録用
         
         self.disp_mdcn_nowpage=0
         self.disp_mdcn_all_nowpage=0
@@ -191,21 +194,28 @@ class gui(QtWidgets.QMainWindow):
 
     def reason_wkup_late(self):
         #「起床時間が遅い」ボタンを押した処理
+        self.record.setNotTakeReasonAll("wkup_late") #全部飲まない＆理由選択
+        self.record.sendEmail() #Email発送
         self.ui.stackedWidget.setCurrentIndex(0) #top画面に戻る
+        
 
     def reason_bad_condition(self):
         #「体調不良」ボタンを押した処理
-        a=1
+        self.record.setNotTakeReasonAll("bad_condition")
+        self.record.sendEmail()
         self.ui.stackedWidget.setCurrentIndex(0)
 
     def reason_have_no_mdcn(self):
         #「薬がない，忘れた」ボタンを押した処理
+        self.record.setNotTakeReasonAll("have_no_mdcn")
+        self.record.sendEmail()
         self.ui.stackedWidget.setCurrentIndex(0)
 
     def reason_other(self):
         #「その他」ボタンを押した処理
+        self.record.setNotTakeReasonAll("other")
+        self.record.sendEmail()
         self.ui.stackedWidget.setCurrentIndex(0)
-
 
     #以下は「薬を飲んだ」　あとの各薬に対しての操作です
     def mdcn_reset(self):
@@ -221,6 +231,7 @@ class gui(QtWidgets.QMainWindow):
 
     def mdcn_taken(self):
         #「薬を飲んだ」ボタンを押した処理
+        self.record.setTakeEach(self.disp_mdcn_nowpage)
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
             self.disp_mdcn_nowpage+=1
             dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
@@ -230,6 +241,7 @@ class gui(QtWidgets.QMainWindow):
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
 
         else:
+            self.record.sendEmail()
             self.ui.stackedWidget.setCurrentIndex(0)
 
         
@@ -237,6 +249,7 @@ class gui(QtWidgets.QMainWindow):
 
     def mdcn_no_late(self):
         #薬を飲まないー起床が遅い」ボタン
+        self.record.setNotTakeReasonEach(self.disp_mdcn_nowpage,"wkup_late")
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
             self.disp_mdcn_nowpage+=1
             dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
@@ -246,12 +259,14 @@ class gui(QtWidgets.QMainWindow):
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
         
         else:
+            self.record.sendEmail()
             self.ui.stackedWidget.setCurrentIndex(0)
 
 
 
     def mdcn_no_badcon(self):
         #薬を飲まないー体調が悪い」ボタン
+        self.record.setNotTakeReasonEach(self.disp_mdcn_nowpage, "bad_condition")
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
             self.disp_mdcn_nowpage+=1
             dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
@@ -261,12 +276,14 @@ class gui(QtWidgets.QMainWindow):
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
         
         else:
+            self.record.sendEmail()
             self.ui.stackedWidget.setCurrentIndex(0)
 
 
 
     def mdcn_no_havezero(self):
         #「薬を飲まないー薬がない・忘れた」ボタン
+        self.record.setNotTakeReasonEach(self.disp_mdcn_nowpage, "have_no_mdcn")
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
             self.disp_mdcn_nowpage+=1
             dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
@@ -276,12 +293,14 @@ class gui(QtWidgets.QMainWindow):
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
 
         else:
+            self.record.sendEmail()
             self.ui.stackedWidget.setCurrentIndex(0)
 
 
 
     def mdcn_no_other(self):
         #「薬を飲まないーその他」ボタン
+        self.record.setNotTakeReasonEach(self.disp_mdcn_nowpage, "reason_other")
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
             self.disp_mdcn_nowpage+=1
             dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
@@ -291,6 +310,7 @@ class gui(QtWidgets.QMainWindow):
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
 
         else:
+            self.record.sendEmail()
             self.ui.stackedWidget.setCurrentIndex(0)
 
 
@@ -356,7 +376,7 @@ class gui(QtWidgets.QMainWindow):
     
 
     def loadDatabase(self):
-        dataop = open('medicine_data/data.json','r')
+        dataop = open('medicine_data/data.json','r', encoding='utf-8')
         data = json.load(dataop)
 
         self.mdcnlist_all=data['mdcn_data']
@@ -404,7 +424,8 @@ class gui(QtWidgets.QMainWindow):
         self.ui.label_disp_mdcn_img.setPixmap(QdispResized)
         self.ui.stackedWidget.setCurrentIndex(5)
         playAlarm(self.alarmvol)
-
+        self.record.clearRecords() #以前までの服薬記録消去
+        self.record.setRequiredMdcns(self.mdcnlist_now)  # 薬データ受け取り
 
     def updtTime(self):
         currentTime = QDateTime.currentDateTime().toString('hh:mm')

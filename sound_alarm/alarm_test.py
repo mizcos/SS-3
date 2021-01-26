@@ -49,6 +49,7 @@ def playAlarm(vol):
 
     
 def stopAlarm():
+    a = 0
     pygame.mixer.music.stop()
 
 
