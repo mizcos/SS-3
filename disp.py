@@ -217,7 +217,6 @@ class gui(QtWidgets.QMainWindow):
         self.record.sendEmail()
         self.ui.stackedWidget.setCurrentIndex(0)
 
-
     #以下は「薬を飲んだ」　あとの各薬に対しての操作です
     def mdcn_reset(self):
         #取り消しボタンを押した処理，前の薬に戻ります
