@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QLabel" name="label">
@@ -2430,7 +2430,7 @@
    <sender>mdcn_no_late</sender>
    <signal>pressed()</signal>
    <receiver>MainWindow</receiver>
-   <slot>reason_wkup_late()</slot>
+   <slot>mdcn_no_late()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>399</x>

@@ -659,7 +659,7 @@ class Ui_MainWindow(object):
         self.pushButton_disp_mdcn_back_3.clicked['bool'].connect(MainWindow.disp_mdcn_back_3)
         self.pushButton_disp_mdcn_back_2.pressed.connect(MainWindow.mdcn_reset)
         self.mdcn_yes.pressed.connect(MainWindow.mdcn_taken)
-        self.mdcn_no_late.pressed.connect(MainWindow.reason_wkup_late)
+        self.mdcn_no_late.pressed.connect(MainWindow.mdcn_no_late)
         self.mdcn_no_badcon.pressed.connect(MainWindow.mdcn_no_badcon)
         self.mdcn_no_zero.pressed.connect(MainWindow.mdcn_no_havezero)
         self.mdcn_no_other.pressed.connect(MainWindow.mdcn_no_other)
