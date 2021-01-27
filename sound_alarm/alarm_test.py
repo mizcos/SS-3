@@ -48,6 +48,20 @@ def playAlarm(vol):
     pygame.mixer.music.play(-1)
 
     
+def playCancelSound(vol):
+    pygame.mixer.init()
+    pygame.mixer.music.load("sound_alarm/cancel.mp3")
+    opVol = vol/100
+    pygame.mixer.music.set_volume(opVol)
+    pygame.mixer.music.play(0)
+
+def playSelectSound(vol):
+    pygame.mixer.init()
+    pygame.mixer.music.load("sound_alarm/select.mp3")
+    opVol = vol/100
+    pygame.mixer.music.set_volume(opVol)
+    pygame.mixer.music.play(0)
+
 def stopAlarm():
     a = 0
     pygame.mixer.music.stop()

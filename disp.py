@@ -8,7 +8,7 @@ from record import RecordData
 import datetime
 import json
 import copy
-from sound_alarm.alarm_test import playTapSound,playAlarm,stopAlarm
+from sound_alarm.alarm_test import playTapSound,playAlarm,stopAlarm,playCancelSound,playSelectSound
 
 
 class gui(QtWidgets.QMainWindow):
@@ -47,7 +47,7 @@ class gui(QtWidgets.QMainWindow):
 
     def gopage_top(self):
         self.ui.stackedWidget.setCurrentIndex(0)
-        playTapSound(self.tapvol)
+        playCancelSound(self.tapvol)
 
 
     def gopage_mdcn_info(self):
@@ -95,25 +95,28 @@ class gui(QtWidgets.QMainWindow):
         self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
         self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
         self.ui.stackedWidget.setCurrentIndex(7)
+        playTapSound(self.tapvol)
 
 
 
     def slct_yet(self):
         #「食事がまだ」ボタンを押した処理
         self.ui.stackedWidget.setCurrentIndex(9)
-        self.snooze = self.snooze + 30
-        #self.snooze = self.snooze + 30*60
+        self.snooze = self.snooze + 30*60
         stopAlarm()
+        playTapSound(self.tapvol)
 
     def slct_no(self):
         #「飲んでいない」ボタンを押した処理
         self.ui.stackedWidget.setCurrentIndex(10)
         self.snooze =0
         stopAlarm()
+        playTapSound(self.tapvol)
 
     def set_snooze(self):
         #60分後に再通知なので，default 30 +30 min
         self.snooze = self.snooze + 30*60
+        playTapSound(self.tapvol)
 
     def set_oparate_volume(self,value):
         self.tapvol=value
@@ -197,6 +200,7 @@ class gui(QtWidgets.QMainWindow):
         self.record.setNotTakeReasonAll("wkup_late") #全部飲まない＆理由選択
         self.record.sendEmail() #Email発送
         self.ui.stackedWidget.setCurrentIndex(0) #top画面に戻る
+        playTapSound(self.tapvol)
         
 
     def reason_bad_condition(self):
@@ -204,18 +208,21 @@ class gui(QtWidgets.QMainWindow):
         self.record.setNotTakeReasonAll("bad_condition")
         self.record.sendEmail()
         self.ui.stackedWidget.setCurrentIndex(0)
+        playTapSound(self.tapvol)
 
     def reason_have_no_mdcn(self):
         #「薬がない，忘れた」ボタンを押した処理
         self.record.setNotTakeReasonAll("have_no_mdcn")
         self.record.sendEmail()
         self.ui.stackedWidget.setCurrentIndex(0)
+        playTapSound(self.tapvol)
 
     def reason_other(self):
         #「その他」ボタンを押した処理
         self.record.setNotTakeReasonAll("other")
         self.record.sendEmail()
         self.ui.stackedWidget.setCurrentIndex(0)
+        playTapSound(self.tapvol)
 
     #以下は「薬を飲んだ」　あとの各薬に対しての操作です
     def mdcn_reset(self):
@@ -227,11 +234,13 @@ class gui(QtWidgets.QMainWindow):
             QdispResized = Qdisp.scaled(180,130)
             self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+            playTapSound(self.tapvol)
 
 
     def mdcn_taken(self):
         #「薬を飲んだ」ボタンを押した処理
         self.record.setTakeEach(self.disp_mdcn_nowpage)
+        playTapSound(self.tapvol)
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
             self.disp_mdcn_nowpage+=1
             dispimg = QImage(self.mdcnlist_now[self.disp_mdcn_nowpage]['img_path'])
@@ -249,6 +258,7 @@ class gui(QtWidgets.QMainWindow):
 
     def mdcn_no_late(self):
         #薬を飲まないー起床が遅い」ボタン
+        playTapSound(self.tapvol)
         self.record.setNotTakeReasonEach(self.disp_mdcn_nowpage,"wkup_late")
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
             self.disp_mdcn_nowpage+=1
@@ -266,6 +276,7 @@ class gui(QtWidgets.QMainWindow):
 
     def mdcn_no_badcon(self):
         #薬を飲まないー体調が悪い」ボタン
+        playTapSound(self.tapvol)
         self.record.setNotTakeReasonEach(self.disp_mdcn_nowpage, "bad_condition")
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
             self.disp_mdcn_nowpage+=1
@@ -282,6 +293,7 @@ class gui(QtWidgets.QMainWindow):
 
 
     def mdcn_no_havezero(self):
+        playTapSound(self.tapvol)
         #「薬を飲まないー薬がない・忘れた」ボタン
         self.record.setNotTakeReasonEach(self.disp_mdcn_nowpage, "have_no_mdcn")
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
@@ -299,6 +311,7 @@ class gui(QtWidgets.QMainWindow):
 
 
     def mdcn_no_other(self):
+        playTapSound(self.tapvol)
         #「薬を飲まないーその他」ボタン
         self.record.setNotTakeReasonEach(self.disp_mdcn_nowpage, "reason_other")
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
@@ -319,6 +332,7 @@ class gui(QtWidgets.QMainWindow):
 
     def disp_mdcn_back(self):
         stopAlarm()
+        playSelectSound(self.tapvol)
         if(self.disp_mdcn_nowpage>0):
             self.disp_mdcn_nowpage-=1
             self.ui.label_disp_mdcn_typenum.setText(str(len(self.mdcnlist_now))+'種類')
@@ -335,6 +349,7 @@ class gui(QtWidgets.QMainWindow):
     
     def disp_mdcn_next(self):
         stopAlarm()
+        playSelectSound(self.tapvol)
         if(self.disp_mdcn_nowpage<len(self.mdcnlist_now)-1):
             self.disp_mdcn_nowpage +=1
             self.ui.label_disp_mdcn_typenum.setText(str(len(self.mdcnlist_now))+'種類')
@@ -348,6 +363,7 @@ class gui(QtWidgets.QMainWindow):
 
     #お薬情報表示
     def disp_mdcn_back_3(self):
+        playSelectSound(self.tapvol)
         if(self.disp_mdcn_all_nowpage>0):
             self.disp_mdcn_all_nowpage -=1
             self.ui.label_disp_mdcn_num_3.setText(str(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['num'])+'錠')
@@ -361,6 +377,7 @@ class gui(QtWidgets.QMainWindow):
 
 
     def disp_mdcn_next_3(self):
+        playSelectSound(self.tapvol)
         if(self.disp_mdcn_all_nowpage<len(self.mdcnlist_all)-1):
             self.disp_mdcn_all_nowpage +=1
             self.ui.label_disp_mdcn_num_3.setText(str(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['num'])+'錠')
