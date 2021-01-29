@@ -48,7 +48,8 @@ class RecordData:
         else:
             self.record_contents += "<服薬情報>\n"
             for mdcn in self.records:
-                self.record_contents += mdcn["name"]+"　"+str(mdcn["num"]) + "錠 : "+mdcn["state"]
+                if "name" in mdcn:
+                    self.record_contents += mdcn["name"]+"　"+str(mdcn["num"]) + "錠 : "+mdcn["state"]
                 if "reason" in mdcn:
                     self.record_contents += "("+mdcn["reason"]+")\n"
                 else:
