@@ -43,10 +43,13 @@ class Email:
             msg["To"] = receiver
             smtp.sendmail(sender_qq_mail, receiver, msg.as_string())
             smtp.quit()
-            return True
+            
         except Exception as e:
             print(e)
             return False
+        else:
+            print("mail sending success!!")
+            return True
     
     if __name__ == '__main__':
         if send_mail():
