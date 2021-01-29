@@ -582,8 +582,8 @@
        <rect>
         <x>190</x>
         <y>160</y>
-        <width>21</width>
-        <height>16</height>
+        <width>51</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="font">
@@ -600,8 +600,8 @@
        <rect>
         <x>190</x>
         <y>240</y>
-        <width>21</width>
-        <height>16</height>
+        <width>41</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="font">
