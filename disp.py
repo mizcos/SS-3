@@ -250,6 +250,7 @@ class gui(QtWidgets.QMainWindow):
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
 
         else:
+            self.disp_mdcn_nowpage = 0
             self.record.sendEmail()
             self.ui.stackedWidget.setCurrentIndex(0)
 
@@ -269,6 +270,7 @@ class gui(QtWidgets.QMainWindow):
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
         
         else:
+            self.disp_mdcn_nowpage = 0
             self.record.sendEmail()
             self.ui.stackedWidget.setCurrentIndex(0)
 
@@ -287,6 +289,7 @@ class gui(QtWidgets.QMainWindow):
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
         
         else:
+            self.disp_mdcn_nowpage = 0
             self.record.sendEmail()
             self.ui.stackedWidget.setCurrentIndex(0)
 
@@ -305,6 +308,7 @@ class gui(QtWidgets.QMainWindow):
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
 
         else:
+            self.disp_mdcn_nowpage = 0
             self.record.sendEmail()
             self.ui.stackedWidget.setCurrentIndex(0)
 
@@ -323,6 +327,7 @@ class gui(QtWidgets.QMainWindow):
             self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
 
         else:
+            self.disp_mdcn_nowpage = 0
             self.record.sendEmail()
             self.ui.stackedWidget.setCurrentIndex(0)
 
