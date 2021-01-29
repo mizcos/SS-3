@@ -15,13 +15,14 @@ class RecordData:
         print(self.all_records)
         self.makeMailRecordContent()
         print(self.record_contents)
-        self.email.send_mail(self.record_contents)
+        #self.email.send_mail(self.record_contents)
         self.clearRecords()
         a = 0
 
     def clearRecords(self):
         self.records = [{}]
         self.all_records = []
+        self.record_contents = []
 
     def setRequiredMdcns(self, li):
         self.records=li
