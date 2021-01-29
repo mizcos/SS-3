@@ -47,6 +47,7 @@ class Email:
         except Exception as e:
             print(e)
             return False
+    
     if __name__ == '__main__':
         if send_mail():
             0
