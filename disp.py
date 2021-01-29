@@ -93,7 +93,7 @@ class gui(QtWidgets.QMainWindow):
         Qdisp = QPixmap.fromImage(dispimg)
         QdispResized = Qdisp.scaled(180,130)
         self.ui.label_disp_mdcn_img_4.setPixmap(QdispResized)
-        self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_all_nowpage]['name'])
+        self.ui.label_disp_mdcn_name_4.setText(self.mdcnlist_all[self.disp_mdcn_nowpage]['name'])
         self.ui.stackedWidget.setCurrentIndex(7)
         playTapSound(self.tapvol)
 
