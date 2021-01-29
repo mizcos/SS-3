@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QLabel" name="label">
@@ -96,13 +96,13 @@
        <rect>
         <x>120</x>
         <y>160</y>
-        <width>241</width>
+        <width>301</width>
         <height>51</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>25</pointsize>
        </font>
       </property>
       <property name="text">
@@ -208,7 +208,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>27</pointsize>
+        <pointsize>23</pointsize>
        </font>
       </property>
       <property name="text">
@@ -227,7 +227,7 @@
       <property name="font">
        <font>
         <family>Apple SD Gothic Neo</family>
-        <pointsize>30</pointsize>
+        <pointsize>23</pointsize>
         <kerning>true</kerning>
        </font>
       </property>
@@ -343,7 +343,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>35</pointsize>
+        <pointsize>28</pointsize>
        </font>
       </property>
       <property name="text">
@@ -361,7 +361,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>23</pointsize>
        </font>
       </property>
       <property name="text">
@@ -379,7 +379,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>23</pointsize>
        </font>
       </property>
       <property name="text">
@@ -397,7 +397,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>23</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1353,7 +1353,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1364,14 +1364,14 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>60</y>
+        <y>40</y>
         <width>361</width>
         <height>71</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>23</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1633,7 +1633,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>24</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1883,98 +1883,242 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton_return_6</sender>
+   <sender>timeEdit_breakfast_3</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_mealtime_breakfast(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>247</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>56</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>timeEdit_lanch</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_mealtime_lunch(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>192</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_breakfast</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slider_breakfast(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>273</x>
+     <y>140</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_return_13</sender>
    <signal>pressed()</signal>
    <receiver>MainWindow</receiver>
    <slot>gopage_top()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>80</x>
-     <y>73</y>
+     <x>69</x>
+     <y>43</y>
     </hint>
     <hint type="destinationlabel">
-     <x>118</x>
+     <x>101</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>timeEdit_dinner</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_mealtime_dinner(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>271</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>241</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_slct_yet</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slct_yet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>277</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
      <y>274</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_return</sender>
+   <sender>pushButton_3</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>reason_wkup_late()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>101</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>26</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_return_3</sender>
    <signal>pressed()</signal>
    <receiver>MainWindow</receiver>
    <slot>gopage_top()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>86</x>
-     <y>90</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>97</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set_mealtime</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>gopage_set_mealtime()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>169</x>
-     <y>232</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>133</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_setadress</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>gopage_set_adress()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>267</x>
-     <y>47</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>238</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set_volume</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>gopage_set_volume()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>340</x>
-     <y>200</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>338</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_return_2</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>gopage_top()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>35</x>
+     <x>73</x>
      <y>65</y>
     </hint>
     <hint type="destinationlabel">
-     <x>0</x>
+     <x>8</x>
      <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>reason_bad_condition()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>182</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_snooze()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>322</x>
+     <y>306</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_slct_yes</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slct_yes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>270</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>144</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_slct_no</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slct_no()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>411</x>
+     <y>250</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>391</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_slct_no_2</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slct_no()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>346</x>
+     <y>303</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>334</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_lunch</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slider_lunch(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>225</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_disp_mdcn_next_3</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>disp_mdcn_next_3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>293</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>395</x>
+     <y>318</y>
     </hint>
    </hints>
   </connection>
@@ -2091,6 +2235,214 @@
    </hints>
   </connection>
   <connection>
+   <sender>timeEdit_breakfast</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_mealtime_breakfast(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>335</x>
+     <y>142</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mdcn_no_zero</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mdcn_no_havezero()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>411</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>428</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mdcn_no_other</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mdcn_no_other()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>449</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>timeEdit_dinner_3</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_mealtime_dinner(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>338</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>122</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mdcn_no_late</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mdcn_no_late()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>178</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mdcn_no_badcon</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mdcn_no_badcon()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>368</x>
+     <y>184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_dinner</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slider_dinner(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>323</x>
+     <y>303</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_return_6</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gopage_top()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>118</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_return</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gopage_top()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>97</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_mealtime</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gopage_set_mealtime()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>232</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>133</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_setadress</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gopage_set_adress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>267</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>238</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_volume</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gopage_set_volume()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>338</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_return_2</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>gopage_top()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>35</x>
+     <y>65</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>pushButton_disp_mdcn_next</sender>
    <signal>pressed()</signal>
    <receiver>MainWindow</receiver>
@@ -2118,134 +2470,6 @@
     </hint>
     <hint type="destinationlabel">
      <x>104</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_2</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set_snooze()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>322</x>
-     <y>306</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>302</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_slct_yes</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slct_yes()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>80</x>
-     <y>270</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>144</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_slct_no_2</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slct_no()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>346</x>
-     <y>303</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>334</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_slct_no</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slct_no()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>411</x>
-     <y>250</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>391</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_slct_yet</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slct_yet()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>230</x>
-     <y>277</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>198</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_return_3</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>gopage_top()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>73</x>
-     <y>65</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>8</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_3</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>reason_wkup_late()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>101</x>
-     <y>136</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>26</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_4</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>reason_bad_condition()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>182</x>
-     <y>176</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>159</x>
      <y>274</y>
     </hint>
    </hints>
@@ -2315,102 +2539,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>timeEdit_lanch</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set_mealtime_lunch(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>280</x>
-     <y>192</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>479</x>
-     <y>189</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>timeEdit_dinner</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set_mealtime_dinner(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>264</x>
-     <y>271</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>479</x>
-     <y>241</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>timeEdit_breakfast</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set_mealtime_breakfast(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>335</x>
-     <y>142</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>479</x>
-     <y>126</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_disp_mdcn_next_3</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>disp_mdcn_next_3()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>252</x>
-     <y>293</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>395</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_disp_mdcn_back_3</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>disp_mdcn_back_3()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>50</x>
-     <y>296</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>54</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_disp_mdcn_back_2</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>mdcn_reset()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>95</x>
-     <y>270</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>109</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>mdcn_yes</sender>
    <signal>pressed()</signal>
    <receiver>MainWindow</receiver>
@@ -2422,86 +2550,6 @@
     </hint>
     <hint type="destinationlabel">
      <x>239</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>mdcn_no_late</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>mdcn_no_late()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>399</x>
-     <y>111</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>178</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>mdcn_no_badcon</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>mdcn_no_badcon()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>368</x>
-     <y>184</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>302</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>mdcn_no_zero</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>mdcn_no_havezero()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>411</x>
-     <y>228</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>428</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>mdcn_no_other</sender>
-   <signal>pressed()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>mdcn_no_other()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>449</x>
-     <y>296</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>386</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>timeEdit_breakfast_3</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set_mealtime_breakfast(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>247</x>
-     <y>115</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>56</x>
      <y>318</y>
     </hint>
    </hints>
@@ -2523,82 +2571,34 @@
    </hints>
   </connection>
   <connection>
-   <sender>timeEdit_dinner_3</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set_mealtime_dinner(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>338</x>
-     <y>274</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>122</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_breakfast</sender>
-   <signal>sliderMoved(int)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slider_breakfast(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>273</x>
-     <y>140</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>360</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_lunch</sender>
-   <signal>sliderMoved(int)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slider_lunch(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>280</x>
-     <y>225</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>346</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_dinner</sender>
-   <signal>sliderMoved(int)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>slider_dinner(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>323</x>
-     <y>303</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>254</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_return_13</sender>
+   <sender>pushButton_disp_mdcn_back_2</sender>
    <signal>pressed()</signal>
    <receiver>MainWindow</receiver>
-   <slot>gopage_top()</slot>
+   <slot>mdcn_reset()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>43</y>
+     <x>95</x>
+     <y>270</y>
     </hint>
     <hint type="destinationlabel">
-     <x>101</x>
-     <y>319</y>
+     <x>109</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_disp_mdcn_back_3</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>disp_mdcn_back_3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>54</x>
+     <y>318</y>
     </hint>
    </hints>
   </connection>
