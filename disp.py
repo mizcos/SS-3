@@ -503,7 +503,7 @@ class gui(QtWidgets.QMainWindow):
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     window = gui()
-    #window.showFullScreen()
-    window.show()
+    window.showFullScreen()
+    #swindow.show()
     
     sys.exit(app.exec_())

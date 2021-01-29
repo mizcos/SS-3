@@ -15,7 +15,7 @@ class RecordData:
         print(self.all_records)
         self.makeMailRecordContent()
         print(self.record_contents)
-        #self.email.send_mail(self.record_contents)
+        self.email.send_mail(self.record_contents)
         self.clearRecords()
         a = 0
 
@@ -31,7 +31,8 @@ class RecordData:
         self.all_records = {"state":self.states["not_take"],"reason":self.reasons[reason]}
 
     def setNotTakeReasonEach(self,index,reason):
-        self.records[index].update({"state": self.states["not_take"],"reason": self.reasons[reason]})
+        if index<len(self.records):
+            self.records[index].update({"state": self.states["not_take"],"reason": self.reasons[reason]})
         #self.records[index].append({"state": self.states["not_take"], "reason": self.reasons[reason]})
         
     def setTakeEach(self,index):
