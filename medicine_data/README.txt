@@ -1,5 +1,5 @@
 この画像サンプルは服薬例のダミーデータとしてまとめたものであり, 薬剤間の相互作用等に配慮されていない場合がある. 
-画像および薬剤の名称はQLifePro(https://meds.qlifepro.com/)から引用. 
+画像および薬剤の名称はQLife(https://www.qlife.jp/)から引用. 
 以下, 薬剤ごとの名称・URLを列挙する. 
 
 ・カロナール錠200(https://meds.qlifepro.com/detail/1141007F1063/%E3%82%AB%E3%83%AD%E3%83%8A%E3%83%BC%E3%83%AB%E9%8C%A0%EF%BC%92%EF%BC%90%EF%BC%90)
